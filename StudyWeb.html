@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyWeb</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Flavicon -->
+    <link rel="icon" href="flav.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="navBar">test</div>
+    <h1 class="h1">Nyas Study Website</h1>
+
+    <h2 id="timer" class="timerM">00:00</h2>
+
+    <!-- Single input: MMSS -->
+    <label for="timeInput">Enter time (MMSS):</label>
+    <input class="timeIn" id="timeInput" placeholder="e.g. 5:00" />
+    <br />
+
+    <!-- Control buttons -->
+    <button class="buttons" onclick="startTimer()">Start</button>
+    <button class="buttons" onclick="pauseTimer()">Pause</button>
+    <button class="buttons" onclick="resetTimer()">Reset</button>
+
+    <!-- Optional alarm -->
+    <audio id="alarmSound">
+      <source
+        src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"
+        type="audio/ogg"
+      />
+      Your browser does not support the audio element.
+    </audio>
+
+    <script>
+      let totalSeconds = 0;
+      let countdown;
+      let isPaused = false;
+
+      function startTimer() {
+        const input = document.getElementById("timeInput");
+
+        if (!isPaused) {
+          const timeValue = input.value.trim(); // e.g. "5:00"
+          const parts = timeValue.split(":");
+
+          if (parts.length !== 2) {
+            alert("Please enter time in MM:SS format.");
+            return;
+          }
+
+          let minutes = parseInt(parts[0]);
+          let seconds = parseInt(parts[1]);
+
+          if (
+            isNaN(minutes) ||
+            isNaN(seconds) ||
+            seconds > 59 ||
+            seconds < 0 ||
+            minutes < 0
+          ) {
+            alert("Invalid time. Use format like 5:00 or 00:30.");
+            return;
+          }
+
+          totalSeconds = minutes * 60 + seconds;
+        }
+
+        if (countdown) clearInterval(countdown);
+
+        countdown = setInterval(() => {
+          if (totalSeconds > 0) {
+            totalSeconds--;
+            updateDisplay(totalSeconds);
+          } else {
+            clearInterval(countdown);
+            updateDisplay(0);
+            document.getElementById("alarmSound").play();
+          }
+        }, 1000);
+
+        isPaused = false;
+      }
+
+      function pauseTimer() {
+        clearInterval(countdown);
+        isPaused = true;
+      }
+
+      function resetTimer() {
+        clearInterval(countdown);
+        totalSeconds = 0;
+        isPaused = false;
+        document.getElementById("timer").textContent = "00:00";
+        document.getElementById("timeInput").value = "";
+      }
+
+      function updateDisplay(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        document.getElementById("timer").textContent = `${mins
+          .toString()
+          .padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+      }
+    </script>
+  </body>
+</html>

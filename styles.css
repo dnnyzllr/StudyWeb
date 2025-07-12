@@ -1,0 +1,62 @@
+.playfair-text {
+  font-family: "Playfair Display", serif;
+  font-weight: 400; /* or 900 */
+  font-style: normal; /* or italic */
+}
+
+.patrick-text {
+  font-family: "Patrick Hand", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Patrick Hand", cursive;
+  background-image: url(natureBack.png);
+  background-size: cover;
+  color: white;
+  text-align: center;
+  font-size: 50px;
+  padding: 0;
+  margin: 0;
+}
+
+.h1 {
+  font-size: 100px;
+  text-align: center;
+  margin: 0;
+}
+
+.navBar {
+  background-color: aliceblue;
+  height: 100px;
+  opacity: 0.7;
+}
+
+.timerM {
+  font-size: 300px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.buttons {
+  border-color: green;
+  height: 50px;
+  width: 100px;
+  font-family: "Patrick Hand", cursive;
+  font-size: 30px;
+  border-width: 4px;
+  border-radius: 100px;
+}
+
+.buttons:hover {
+  opacity: 0.8;
+}
+
+.timeIn {
+  height: 30px;
+  border-color: green;
+  border-radius: 100px;
+  border-width: 5px;
+}
