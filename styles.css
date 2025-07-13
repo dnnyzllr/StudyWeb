@@ -40,23 +40,60 @@ body {
   margin: 0;
 }
 
-.buttons {
+.buttons,
+.timeIn {
   border-color: green;
   height: 50px;
   width: 100px;
   font-family: "Patrick Hand", cursive;
   font-size: 30px;
   border-width: 4px;
-  border-radius: 100px;
+  border-radius: 12px;
+  background-color: #f4e3c1;
+  color: #4b2e2e;
+  border: 2px solid #8b5e3c;
+  background: linear-gradient(to bottom, #f4e3c1, #e3cba8);
 }
 
 .buttons:hover {
   opacity: 0.8;
+  transform: translateY(-2px);
+  box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.3);
 }
 
 .timeIn {
   height: 30px;
-  border-color: green;
-  border-radius: 100px;
-  border-width: 5px;
+  width: 250px;
+}
+
+.pomodoro-container {
+  position: relative;
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  opacity: 0.8;
+  box-shadow: 0px 8px 12px rgba(40, 30, 10, 0.3);
+  border-radius: 8px; /* optional: for a smoother edge */
+}
+
+.pomodoro-container img {
+  filter: brightness(0.95) saturate(1.1);
+}
+
+.pomodoro-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.pomodoro-text {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  width: 80%;
+  text-align: center;
+  color: #2d1f0f;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 30px;
+  line-height: 1.5;
 }

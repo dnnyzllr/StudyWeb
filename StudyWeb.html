@@ -26,7 +26,7 @@
     <h2 id="timer" class="timerM">00:00</h2>
 
     <!-- Single input: MMSS -->
-    <label for="timeInput">Enter time (MMSS):</label>
+    <label for="timeInput">Enter time (MM:SS):</label>
     <input class="timeIn" id="timeInput" placeholder="e.g. 5:00" />
     <br />
 
@@ -44,6 +44,20 @@
       Your browser does not support the audio element.
     </audio>
 
+    <br />
+    <br />
+    <div class="pomodoro-container">
+      <img src="pomBack.png" alt="Leaf frame" class="pomodoro-bg" />
+      <div class="pomodoro-text">
+        <h2>Pomodoro Technique</h2>
+        <p>
+          The Pomodoro Technique helps you stay focused while studying by using
+          short bursts of work. Set a timer for 25 minutes, then take a 5-minute
+          break. After four sessions, take a longer break (15–30 minutes) to
+          rest. This keeps your mind fresh and focused.
+        </p>
+      </div>
+    </div>
     <script>
       let totalSeconds = 0;
       let countdown;
